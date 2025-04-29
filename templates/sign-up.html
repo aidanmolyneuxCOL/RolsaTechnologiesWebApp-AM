@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+
+</head>
+
+
+
+<body>
+    
+    <style>
+        body{
+            background-image: url('https://gospringsolarnow.com/storage/2021/02/Main-Purpose-Of-Solar-Panels-scaled-2560x1280.jpeg');
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position: center;
+            background-attachment:fixed;
+            
+        }
+    </style>
+
+<header>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <a href="{{ url_for('home_page') }}" alt="Rolsa Logo (Home Button)" title="Home Button (Rolsa Logo)">Rolsa</a>
+        </div>
+        
+            <ul class="navbar-items">
+                <li><a href="{{ url_for('energy_usage') }}" alt="Energy Usage Button">Energy Usage</li>
+                <li><a href="{{ url_for('carbon_footprint') }}" alt="Carbon Footprint Button">Carbon Footprint</li>
+                <li><a href="{{ url_for('installations_and_consultations') }}" alt="Energy Usage Button">Installations and Consultations</li>
+                <li><a href="{{ url_for('green_energy_products') }}" alt="Green Energy Products Button">Green Energy Prodcuts</li>
+            </ul>
+            {% if logged_in %}
+            <div class="navbar-login">
+                <a class="button" href="{{ url_for('account') }}" alt="Account Button">Account</a>
+            </div>
+            {% else %}
+            <div class="navbar-login">
+                <a class="button" href="{{ url_for('log_in') }}" alt="Log In Button">Log In</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+
+<div class="account-form">
+    <H1>Rolsa Technologies</H1>
+    <h2>Sign Up</h2>
+    <form action="/sign-up" method="post">
+
+        <label for="firstname">
+            First name:
+        </label>
+        <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+
+        <label for="surname">
+            Surname:
+        </label>
+        <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
+
+        <label for="email">
+            Email:
+        </label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="password">
+            Password:
+        </label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        {% if error %}
+        <p style="color:rgb(255,0,0);">{{error}}</p>
+        {% endif %}
+        <div class="wrap-button">
+            <button type="sign-up">
+                Sign Up
+            </button>
+        </div>
+    </form>
+
+
+    <p>Already have an account?
+        <a href="log-in">Log In</a>
+    </p>
+</div>
+
+
+
+
+
+</body>

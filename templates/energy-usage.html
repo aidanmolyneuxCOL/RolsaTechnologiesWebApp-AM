@@ -1,0 +1,72 @@
+
+
+
+<!DOCTYPE html>
+
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+
+</head>
+
+<body>
+
+    <style>
+        body{
+            background-color: rgba(173, 216, 230, 1);
+    
+        }
+    </style>
+<header>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <a href="{{ url_for('home_page') }}" alt="Rolsa Logo (Home Button)" title="Home Button (Rolsa Logo)">Rolsa</a>
+        </div>
+        
+            <ul class="navbar-items">
+                <li><a href="{{ url_for('energy_usage') }}" alt="Energy Usage Button">Energy Usage</li>
+                <li><a href="{{ url_for('carbon_footprint') }}" alt="Carbon Footprint Button">Carbon Footprint</li>
+                <li><a href="{{ url_for('installations_and_consultations') }}" alt="Energy Usage Button">Installations and Consultations</li>
+                <li><a href="{{ url_for('green_energy_products') }}" alt="Green Energy Products Button">Green Energy Prodcuts</li>
+            </ul>
+            {% if logged_in %}
+            <div class="navbar-login">
+                <a class="button" href="{{ url_for('account') }}" alt="Account Button">Account</a>
+            </div>
+            {% else %}
+            <div class="navbar-login">
+                <a class="button" href="{{ url_for('log_in') }}" alt="Log In Button">Log In</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+
+
+    <div class="page-content">
+        <h1>Energy usage</h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/4914/4914885.png" alt="energy usage graph image"/>
+            <p>A persons energy usage is heavily determined by the amount of electricity and gas that they use, many factors can affect your energy usage, including: </p>
+            <ul>
+                <li>The size of your home</li>
+                <li>The energy efficiency of your home</li>
+                <li>The amount of people who live in the home</li>
+                <li>The energy efficiency of your household items and how often you use them</li>
+            </ul>
+            <p>Read more about energy usage here: <a href="https://www.ofgem.gov.uk/information-consumers/energy-advice-households/average-gas-and-electricity-use-explained" target="_blank">Energy advice</a></p>
+        <h1>How to reduce energy usage?</h1>
+        <p>
+            The more energy you use, the more money you pay, reducing your energy usage can be  quite simple, turning all electronics and
+            lights off when not in use, switching any incandescent lightbulbs to LED, use power strips for multiple devices, switch to energy-efficient appliances,
+            and more.
+        </p>
+        <div class="calculation-button">
+            <a href="#">Calculate Energy Usage</a>
+        </div>
+        
+
+    </div>
+
+</div>
+</body>
