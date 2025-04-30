@@ -29,7 +29,7 @@ def init_db():
         """)
     
 
-    c.execute('DROP TABLE IF EXISTS tblBooking')
+    #c.execute('DROP TABLE IF EXISTS tblBooking')
 
     c.execute("""CREATE TABLE IF NOT EXISTS tblBooking (
         bookingID integer PRIMARY KEY AUTOINCREMENT,
