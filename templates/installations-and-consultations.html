@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+
+</head>
+
+<body>
+
+    <style>
+        body{
+            background-color: rgba(173, 216, 230, 1);
+    
+        }
+    </style>
+
+<header>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <a href="{{ url_for('home_page') }}" alt="Rolsa Logo (Home Button)" title="Home Button (Rolsa Logo)">Rolsa</a>
+        </div>
+        
+            <ul class="navbar-items">
+                <li><a href="{{ url_for('energy_usage') }}" alt="Energy Usage Button">Energy Usage</li>
+                <li><a href="{{ url_for('carbon_footprint') }}" alt="Carbon Footprint Button">Carbon Footprint</li>
+                <li><a href="{{ url_for('installations_and_consultations') }}" alt="Energy Usage Button">Installations and Consultations</li>
+                <li><a href="{{ url_for('green_energy_products') }}" alt="Green Energy Products Button">Green Energy Prodcuts</li>
+            </ul>
+            {% if logged_in %}
+            <div class="navbar-login">
+                <a class="button" href="{{ url_for('account') }}" alt="Account Button">Account</a>
+            </div>
+            {% else %}
+            <div class="navbar-login">
+                <a class="button" href="{{ url_for('log_in') }}" alt="Log In Button">Log In</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+<!-- { for booking in bookings } -->
+<!-- make table -->
+
+<div class="installations-and-consultations-h1">
+    <h1>Your scheduled installations and consultations</h1>
+</div>
+{% if logged_in %}
+<div class="installations-consultations-wrapper">
+    <h2>Scheduled Installations</h2>
+    <div class="scheduled-installations">
+        
+
+        <a href="#">
+            <img src="https://www.yorkshireroofing.com/wp-content/uploads/2019/07/solar-example.jpg" alt="Solar Panel">
+            <div class="text">
+                <h2>Home Solar Panels</h2>
+                <p>Scheduled for: {{ scheduled_installation_date }} </p> 
+            </div>
+        </a>
+    </div>
+    <!--
+    <div class="scheduled-consultations">
+        <a href="#">
+            <img src="https://www.yorkshireroofing.com/wp-content/uploads/2019/07/solar-example.jpg" alt="Solar Panel">
+            <h2>Home Solar Panels</h2>
+            <p>Schedule Installation or Consultation today!</p>
+        </a>
+
+    </div>-->
+</div>
+{% else %}
+<div class="log-in-to-book">
+    <p>Please log in to view your scheduled installations and consultations</p>
+</div>
+{% endif %}
+
+
+</body>
