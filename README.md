@@ -4,7 +4,7 @@ This is my Rolsa Technologies web app exam code.
 
 # Installing dependencies
 
-Python and flask is needed to run this app.
+Python, flask and sqlite3 are all needed to run this app.
 
 1. Create a virtual environment
 2. To install the dependencies, run this line in the terminal: pip install -r requirements.txt
